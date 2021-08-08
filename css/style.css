@@ -1,0 +1,73 @@
+/* Colours */
+@font-face {
+  font-family: 'Molle';
+  src: url(../css/Molle/Molle-Italic.ttf);
+  font-weight: cursive;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  background: #28293E;
+}
+
+section {
+  padding: 3em;
+  height: 100vh;
+  position: relative;
+  color: white;
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+#name {
+  color: #e4e4e4;
+  font-family: 'Molle', cursive;
+  font-size: 8em;
+  text-align: center;
+  padding-top: 2.3em;
+}
+
+.scrolling-text {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+h2 {
+  opacity: 0.5;
+  margin: 0;
+  font-family: sans-serif;
+  position: fixed;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 12em;
+  top: 60vh;
+  left: 150vh;
+}
+
+h3 {
+  opacity: 0.5;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  position: fixed;
+  top: 40vh;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 12em;
+  right: 100vh;
+}
+/*# sourceMappingURL=style.css.map */
