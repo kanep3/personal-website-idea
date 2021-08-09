@@ -155,6 +155,113 @@ section {
   transform: translateX(-50%) translateY(-50%);
 }
 
+.slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 60em;
+  height: 40em;
+  -webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 60em;
+  height: 40em;
+  z-index: 1;
+}
+
+.slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: -60em;
+  width: 10000px;
+}
+
+.slides.shifting {
+  -webkit-transition: left .2s ease-out;
+  transition: left .2s ease-out;
+}
+
+.slide {
+  width: 60em;
+  height: 40em;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all .7s;
+  transition: all .7s;
+  position: relative;
+  background: #081221;
+  border-radius: 2px;
+}
+
+.slider.loaded .slide:nth-child(2),
+.slider.loaded .slide:nth-child(7) {
+  background: #062650;
+}
+
+.slider.loaded .slide:nth-child(1),
+.slider.loaded .slide:nth-child(3) {
+  background: #12486d;
+}
+
+.slider.loaded .slide:nth-child(4) {
+  background: #0e3d5c;
+}
+
+.control {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background: #FCF7F8;
+  border-radius: 50px;
+  margin-top: -20px;
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.prev,
+.next {
+  background-size: 22px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.prev {
+  background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronLeft-512.png);
+  left: -20px;
+}
+
+.next {
+  background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronRight-512.png);
+  right: -20px;
+}
+
+.prev:active,
+.next:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
 #icon-location {
   margin-left: 22em;
 }
