@@ -1,8 +1,16 @@
-/* Colours */
 @font-face {
   font-family: 'Molle';
   src: url(../css/Molle/Molle-Italic.ttf);
-  font-weight: cursive;
+}
+
+@font-face {
+  font-family: 'Light';
+  src: url(../css/light.ttf);
+}
+
+@font-face {
+  font-family: 'Heavy';
+  src: url(../css/heavy.ttf);
 }
 
 * {
@@ -17,57 +25,161 @@ body {
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  background: #28293E;
+  background: #081221;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 section {
-  padding: 3em;
   height: 100vh;
   position: relative;
-  color: white;
+  color: #FCF7F8;
   scroll-snap-align: start;
   text-align: center;
 }
 
-#name {
-  color: #e4e4e4;
-  font-family: 'Molle', cursive;
-  font-size: 8em;
-  text-align: center;
-  padding-top: 2.3em;
+@-webkit-keyframes showTopText {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes showTopText {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+.animated-title {
+  height: 100%;
+  left: 30%;
+  position: absolute;
+  top: 35vh;
+  width: 50%;
+}
+
+.animated-title > div {
+  height: 12em;
+  overflow: hidden;
+  position: absolute;
+  width: 75vh;
+}
+
+.animated-title > div div {
+  font-family: Molle, Arial, sans-serif;
+  font-size: 10em;
+  padding-right: 1em;
+  position: absolute;
+  color: #FCF7F8;
+}
+
+.animated-title > div div span {
+  display: block;
+}
+
+.animated-title > div.text-top div {
+  -webkit-animation: showTopText 1.6s;
+          animation: showTopText 1.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  bottom: 0;
+  -webkit-transform: translate(0, 100%);
+          transform: translate(0, 100%);
+}
+
+.text-block {
+  position: absolute;
+  top: 52%;
+  left: 67%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.paragraph {
+  font-size: 1.8em;
+  font-family: Light;
+  line-height: 1.7em;
+  width: 23em;
+  text-align: left;
 }
 
 .scrolling-text {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow-x: hidden;
+  display: inline-block;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  transition: -webkit-transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83), -webkit-transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
-h2 {
-  opacity: 0.5;
-  margin: 0;
-  font-family: sans-serif;
-  position: fixed;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+.scrolling-text .scrolling-text-content {
+  color: #FCF7F8;
+  font-family: Heavy;
+  font-size: 120px;
+  opacity: 0.03;
   white-space: nowrap;
-  font-size: 12em;
-  top: 60vh;
-  left: 150vh;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  transition: -webkit-transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83), -webkit-transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  line-height: 1em;
+  margin: 20px 0;
 }
 
-h3 {
-  opacity: 0.5;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  position: fixed;
-  top: 40vh;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  white-space: nowrap;
-  font-size: 12em;
-  right: 100vh;
+.about {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.contact {
+  position: absolute;
+  top: 66%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#icon-location {
+  margin-left: 22em;
+}
+
+.socials {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  margin-top: 23em;
+  padding: 3em;
+  vertical-align: middle;
+}
+
+#email {
+  width: 11.9em;
+}
+
+#linkedin {
+  width: 13.7em;
+}
+
+#github {
+  width: 12.1em;
+}
+
+#stack {
+  width: 12.6em;
 }
 /*# sourceMappingURL=style.css.map */
