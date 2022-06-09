@@ -1,0 +1,217 @@
+@import 'config';
+
+* {
+    box-sizing: border-box ;
+    padding:0;
+    margin:0;
+} 
+// Scroll-snap
+body {
+    margin: 0;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    background: $background;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+section {
+    height: 100vh;
+    position: relative;
+    color: $text;
+    scroll-snap-align: start;
+    text-align: center;
+}
+
+  
+// Title page
+@keyframes showTopText {
+    0% {
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+.animated-title {
+    height: 100%;
+    left: 30%;
+    position: absolute;
+    top: 35vh;
+    width: 50%;
+}
+.animated-title > div {
+    height: 12em;
+    overflow: hidden;
+    position: absolute;
+    width: 75vh;
+}
+.animated-title > div div {
+    font-family: Molle, Arial, sans-serif;
+    font-size: 10em;
+    padding-right: 1em;
+    position: absolute;
+    color: $text;
+}
+.animated-title > div div span {
+    display: block;
+}
+.animated-title > div.text-top div {
+    animation: showTopText 1.6s;
+    animation-fill-mode: forwards;
+    bottom: 0;
+    transform: translate(0, 100%);
+}
+
+// About me
+.text-block {
+    position: absolute;
+    top: 52%;
+    left: 67%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.paragraph {
+    font-size: 1.8em;
+    font-family: Light;
+    line-height: 1.7em;
+    width: 23em;
+    text-align: left;
+}
+.scrolling-text {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+.scrolling-text .scrolling-text-content {
+    color: $text;
+    font-family: Heavy;
+    font-size: 120px;
+    opacity: 0.03;
+    white-space: nowrap;
+    transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+    line-height: 1em;
+    margin: 20px 0;
+}
+.about {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.contact {
+    position: absolute;
+    top: 66%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+// Projects
+$slider-width: 60em;
+$slider-height: 40em;
+.slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $slider-width;
+    height: $slider-height;
+    box-shadow: 3px 3px 10px rgba(0,0,0,.2);
+}
+.wrapper {
+    overflow: hidden;
+    position: relative;
+    width: $slider-width;
+    height: $slider-height;
+    z-index: 1;
+}
+.slides {
+    display: flex;
+    position: relative;
+    top: 0;
+    left: -$slider-width;
+    width: 10000px;
+}
+.slides.shifting {
+    transition: left .2s ease-out;
+}
+.slide {
+    width: $slider-width;
+    height: $slider-height;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all .7s;
+    position: relative;
+    background: $background;
+    border-radius: 2px;
+}
+.slider.loaded {
+    .slide:nth-child(2),
+    .slide:nth-child(7) { background: #062650 }
+    .slide:nth-child(1),
+    .slide:nth-child(3) { background: #12486d }
+    .slide:nth-child(4) { background: #0e3d5c }
+}
+.control {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background: $text;
+    border-radius: 50px;
+    margin-top: -20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+.prev,
+.next {
+    background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.prev {
+    background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronLeft-512.png);
+    left: -20px;
+}
+.next {
+    background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronRight-512.png);
+    right: -20px;
+}
+.prev:active,
+.next:active {
+    transform: scale(.8);
+}
+
+// Contact page
+#icon-location {
+    margin-left: 22em;
+}
+.socials {
+    filter: invert(1);
+    margin-top: 23em;
+    padding: 3em;
+    vertical-align: middle;
+}
+#email {
+    width: 11.9em;
+}
+#linkedin {
+    width: 13.7em;
+}
+#github {
+    width: 12.1em;
+}
+#stack {
+    width: 12.6em;
+}
+
+@import 'mobile'; 
